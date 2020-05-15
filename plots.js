@@ -37,8 +37,18 @@ function buildMetadata(sample){
 
         PANEL.html("");
 
+        // Object.entries(result).forEach(([key, value]) =>
+        // {PANEL.append("h6").text(key + ': ' + value);});
+        // <h6>Key: value</h6>
+        // <h6><span>Key: </span><span>value</span></h6>
+
         Object.entries(result).forEach(([key, value]) =>
-        {PANEL.append("h6").text(key + ': ' + value);});
+        {
+          var h6 = PANEL.append("h6");
+          h6.append('span').text(key + ': ');
+          h6.append('span').text(value);
+
+        });
         
     });
 };

@@ -86,7 +86,11 @@ function buildCharts(sample){
       orientation: 'h'
     }];
 
-    Plotly.newPlot('bar', trace);
+    var layout = {
+      title: 'Top Ten Bacterial Species (OTUs)'
+    };
+
+    Plotly.newPlot('bar', trace, layout);
     
     // Create Bubble chart
     var trace1 = {
@@ -104,7 +108,7 @@ function buildCharts(sample){
     var data = [trace1];
     
     var layout = {
-      title: 'Marker Size and Color',
+      title: 'All Bacterial Species (OTUs)',
       showlegend: false,
       height: 600,
       width: 1200

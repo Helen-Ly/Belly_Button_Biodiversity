@@ -1,0 +1,6 @@
+h6 > span:nth-child(1) {
+
+    text-transform: capitalize;
+    font-weight: bold;
+
+};

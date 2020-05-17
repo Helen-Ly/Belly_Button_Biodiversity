@@ -37,11 +37,14 @@ function buildMetadata(sample){
 
         PANEL.html("");
 
+        // Original version to display demographic information
         // Object.entries(result).forEach(([key, value]) =>
         // {PANEL.append("h6").text(key + ': ' + value);});
         // <h6>Key: value</h6>
         // <h6><span>Key: </span><span>value</span></h6>
 
+        // Updated version to display demographic information
+        // Display demographic info in span tags to allow for individual styling
         Object.entries(result).forEach(([key, value]) =>
         {
           var h6 = PANEL.append("h6");
@@ -58,19 +61,24 @@ function buildCharts(sample){
 
   d3.json("samples.json").then((data) => {
 
+    // Filter down to samples object and grab the corresponding object for the ID picked
     var sampleData = data.samples;
     var resultArray= sampleData.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
     console.log(result);
 
+    // Grab sample values for chosen ID
     var sampleValues = result.sample_values;
     console.log(sampleValues);
 
+    // Grab otu ids for chosen ID
     var otuIds = result.otu_ids;
     console.log(otuIds);
 
+    // Grab otu labels for chosen ID
     var otuLabels = result.otu_labels;
 
+    // Grab wash frequency data
     var metadata = data.metadata;
     var washMetadata = metadata.filter(washObj => washObj.id == sample);
     var wFreq = washMetadata[0].wfreq;
@@ -80,7 +88,7 @@ function buildCharts(sample){
     var trace = [{
 
       x: sampleValues.slice(0,10).reverse(),
-      y: otuIds.map(otu_ids => `OUT ${otu_ids}`).slice(0,10).reverse(),
+      y: otuIds.map(otu_ids => `OTU ${otu_ids}`).slice(0,10).reverse(),
       text: otuLabels,
       type: 'bar',
       orientation: 'h'

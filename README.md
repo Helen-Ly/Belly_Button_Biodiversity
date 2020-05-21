@@ -36,7 +36,7 @@ https://helen-ly.github.io/Belly_Button_Biodiversity/.
     - style.css
     - samples.json
 
-2. Open Visual Studio Code from your projects folder.
+2. Open Visual Studio Code from your project's folder.
 
 3. If you would like to run the webpage without deploying it, it will display a CORS error unless you run a local server. In your terminal or Git Bash, navigate to your folder and type the following:
 
